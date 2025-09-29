@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime as dt
+from campaignshare_fetcher.utils.time import parse_since
 from typing import Any, Dict, Iterable, List
 
 import requests
@@ -87,7 +88,7 @@ def run(name: str, url: str, out_path: str, since: Any | None = None) -> Dict[st
         except Exception:
             return None
 
-    cut = _parse_since(since)
+    cut = parse_since(since)
 
     if cut is not None:
 
