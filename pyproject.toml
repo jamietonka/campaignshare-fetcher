@@ -10,9 +10,14 @@ readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "Jamie Tomkinson" }]
 license = { text = "MIT" }
-
+dependencies = [
+  "requests",
+]
 [project.urls]
 Homepage = "https://github.com/jamietonka/campaignshare-fetcher"
 
 [project.scripts]
 campaignshare = "campaignshare_fetcher.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/campaignshare_fetcher"]
