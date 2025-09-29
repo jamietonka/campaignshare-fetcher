@@ -28,3 +28,4 @@ dist/
 *.egg-info/
 # os
 Thumbs.db
+err.txt
