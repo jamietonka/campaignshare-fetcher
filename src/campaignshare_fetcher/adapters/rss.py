@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Dict, Iterable, Any
 
-UA = "campaignshare/0.3 (+https://github.com/jamietonka/campaignshare-fetcher)"
+UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
 
 
 def _http_get(url: str, timeout: float = 20.0) -> bytes:
