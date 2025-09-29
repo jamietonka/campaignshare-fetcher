@@ -27,7 +27,9 @@ def test_fetch_normalizes(monkeypatch):
         assert "User-Agent" in headers
         return _Resp(payload)
 
-    monkeypatch.setattr("campaignshare.adapters.reddit_json.requests.get", fake_get)
+    monkeypatch.setattr(
+        "campaignshare_fetcher.adapters.reddit_json.requests.get", fake_get
+    )
 
     url = "https://www.reddit.com/r/CityBuildPorn/new.json?limit=2"
     items = reddit.fetch(url=url, name="citybuilding")

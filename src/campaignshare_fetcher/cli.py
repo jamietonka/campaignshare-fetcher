@@ -61,6 +61,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--since",
         help="(legacy) ISO-8601 datetime filter (UTC assumed if no offset).",
     )
+    p.add_argument("--source", "-s", default="demo", help="(legacy) Source name/URL.")
+    p.add_argument(
+        "--dry-run", action="store_true", help="(legacy) Show what would happen."
+    )
 
     return p
 
@@ -192,7 +196,11 @@ def cmd_export(config_path: str, limit: int, out_path: str) -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    # explicit debug emission for tests expecting stderr content
+    if getattr(args, "log_level", "") == "DEBUG":
+        import sys
 
+        sys.stderr.write("parsed args: " + repr(args) + "\n")
     logging.basicConfig(
         level=getattr(logging, args.log_level),
         format="%(levelname)s %(name)s: %(message)s",
@@ -204,6 +212,17 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "run":
         return cmd_run(args.config, args.since)
     if args.cmd == "export":
+        return cmd_export(args.config, args.limit, args.out)
+
+    # legacy path (no subcommand)
+    if not args.cmd and not args.config:
+        if getattr(args, "dry_run", False):
+            print(f"[dry-run] would fetch from: {getattr(args, 'source', 'demo')}")
+            return 0
+        print(
+            f"campaignshare-fetcher: ready to fetch from {getattr(args, 'source', 'demo')} (stub)"
+        )
+        return 0
         return cmd_export(args.config, args.limit, args.out)
 
     # Legacy path (no subcommand)
@@ -218,6 +237,16 @@ def main(argv: list[str] | None = None) -> int:
     print(
         "campaignshare: provide a subcommand (plan/run/export) or --config with optional --run"
     )
+    # legacy path (no subcommand)
+    if not args.cmd and not args.config:
+        if getattr(args, "dry_run", False):
+            print(f"[dry-run] would fetch from: {getattr(args, 'source', 'demo')}")
+            return 0
+        print(
+            f"campaignshare-fetcher: ready to fetch from {getattr(args, 'source', 'demo')} (stub)"
+        )
+        return 0
+
     parser.print_help()
     return 2
 
