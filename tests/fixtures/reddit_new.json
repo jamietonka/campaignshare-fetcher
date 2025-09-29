@@ -1,0 +1,25 @@
+{
+  "kind": "Listing",
+  "data": {
+    "children": [
+      { "kind": "t3", "data": {
+        "id": "abc123",
+        "title": "Example post one",
+        "url": "https://example.org/a",
+        "permalink": "/r/CityBuildPorn/comments/abc123/example_post_one/",
+        "selftext": "Body text line 1\nline 2",
+        "created_utc": 1727200000,
+        "subreddit": "CityBuildPorn"
+      }},
+      { "kind": "t3", "data": {
+        "id": "def456",
+        "title": "Example post two",
+        "url": "https://example.org/b",
+        "permalink": "/r/CityBuildPorn/comments/def456/example_post_two/",
+        "selftext": "",
+        "created_utc": 1727203600,
+        "subreddit": "CityBuildPorn"
+      }}
+    ]
+  }
+}
