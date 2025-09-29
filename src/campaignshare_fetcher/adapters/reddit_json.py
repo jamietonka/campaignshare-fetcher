@@ -90,6 +90,7 @@ def run(name: str, url: str, out_path: str, since: Any | None = None) -> Dict[st
     cut = _parse_since(since)
 
     if cut is not None:
+
         def _ts(it: Dict[str, Any]) -> float | None:
             # prefer explicit epoch fields when available
             for k in ("created_utc", "created", "timestamp"):
@@ -132,7 +133,7 @@ def run(name: str, url: str, out_path: str, since: Any | None = None) -> Dict[st
             if v:
                 return str(v)
         # fallback: stable hash on (title, url)
-        return str(hash((it.get("title", ""), it.get("url", "")))))
+        return str(hash((it.get("title", ""), it.get("url", ""))))
 
     new_items = [it for it in items if _id(it) not in seen]
 
