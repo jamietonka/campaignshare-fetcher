@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "campaignshare-fetcher"
+version = "0.1.0"
+description = "Fetch sources for CampaignShare (stub)"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Jamie Tomkinson" }]
+license = { text = "MIT" }
+
+[project.urls]
+Homepage = "https://github.com/jamietonka/campaignshare-fetcher"
+
+[project.scripts]
+campaignshare = "campaignshare_fetcher.cli:main"
