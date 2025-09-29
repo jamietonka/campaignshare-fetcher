@@ -1,17 +1,14 @@
-# <Project Name>
+# CampaignShare Fetcher
 
-One sentence value proposition.
+Fetches sources for CampaignShare (stub for now).
 
 ## Quickstart
-# choose one:
-pnpm i
-# or: pip install -r requirements.txt
 
-## Develop
-- Scripts live in `scripts/`.
+```bash
+# run the stub
+scripts/run
+```
 
-## Test
-scripts/test
-
-## Release
-Conventional Commits; tag vX.Y.Z
+## Dev notes
+- Code lives in `src/campaignshare_fetcher/`
+- One-task utilities live in `scripts/`
