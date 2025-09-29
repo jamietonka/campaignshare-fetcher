@@ -1,0 +1,12 @@
+# Minimal CampaignShare config (demo)
+[[sources]]
+name = "citybuilding"
+type = "rss"
+url = "https://www.reddit.com/r/CityBuilding/.rss"
+output = "data/citybuilding.jsonl"
+
+[[sources]]
+name = "linux"
+type = "rss"
+url = "https://www.reddit.com/r/linux/.rss"
+output = "data/linux.jsonl"
