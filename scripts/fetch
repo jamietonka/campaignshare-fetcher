@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
 export PYTHONPATH="src:${PYTHONPATH:-}"
-pipx run pytest -q
+python3 -m campaignshare_fetcher.cli "$@"
